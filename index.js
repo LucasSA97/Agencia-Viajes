@@ -23,6 +23,9 @@ app.use( (req, res, next) => {
     
 })
 
+//Agregamos bodyparser para leer los datos del formulario
+app.use(express.urlencoded({extended: true}))
+
 //Definir la carpeta public
 app.use(express.static('public'))
 
