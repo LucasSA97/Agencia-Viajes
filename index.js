@@ -1,5 +1,11 @@
 import express  from "express";
 import router from "./routes/index.js";
+import db from "./config/db.js";
+
+//Conectamos la db
+db.authenticate()
+    .then(() => console.log('Base de datos conectada') )
+    .catch( error => console.log(error))
 
 //Definimos el puerto
 const app = express();
