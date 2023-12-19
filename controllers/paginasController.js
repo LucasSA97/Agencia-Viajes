@@ -51,7 +51,7 @@ const paginaViajes = async  (req, res) => {
     
     
     res.render('viajes', {
-        pagina: 'Viajes', 
+        pagina: 'Proximos Viajes', 
         viajes,
     });
 }
@@ -69,7 +69,11 @@ const paginaViajes = async  (req, res) => {
 //     }
 // }
 
-// // Muestra un viaje por su slug
+
+// Muestra un viaje por su slug
+const paginaDetalleViaje = (req, res) => {
+    console.log(req.params)
+}
 // const paginaDetalleViaje = async (req, res) => {
 
 //     const { slug } = req.params;
@@ -90,5 +94,6 @@ export {
     paginaInicio, 
     paginaNosotros,
     paginaViajes,
-    paginaTestimonios
+    paginaTestimonios,
+    paginaDetalleViaje
 }
