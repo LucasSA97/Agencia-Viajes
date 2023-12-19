@@ -1,7 +1,6 @@
 extends ./layout/layout
 
 block contenido
-
     h1(class="mt-5 text-center") #{pagina}       
     main.container.mt-5
         .row.proximos-viajes
@@ -30,7 +29,12 @@ block contenido
                                     path(d='M21 21v-2a4 4 0 0 0 -3 -3.85')
 
                                 | #{viaje.disponibles} Disponibles
+        
+        
 
-                            p= viaje.descripcion.substr(0, 100) + '...'
 
-                            a(href=`viajes/${viaje.slug}`, class="btn btn-success btn-block") Más Información
+
+
+    //-                         p= viaje.descripcion.substr(0, 100) + '...'
+
+    //-                         a(href=`viajes/${viaje.slug}`, class="btn btn-success btn-block") Más Información
