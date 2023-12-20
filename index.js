@@ -3,13 +3,16 @@ import router from "./routes/index.js";
 import db from "./config/db.js";
 
 
+
 //Conectamos la db
 db.authenticate()
     .then(() => console.log('Base de datos conectada') )
     .catch( error => console.log(error))
 
+    const app = express();
 //Definimos el puerto
-const app = express();
+const port = process.env.PORT || 4000
+app.listen(4000);
 
 //Habilitar PUG
 app.set('view engine', 'pug')
@@ -32,5 +35,3 @@ app.use(express.static('public'))
 //Agregamos el router
 app.use('/', router)
 
-const port = process.env.PORT || 4000
-app.listen(4000);
