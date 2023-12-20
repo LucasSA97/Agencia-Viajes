@@ -3,7 +3,8 @@ import { Testimonios } from '../models/Testimonios.js';
 
 const paginaInicio = async (req, res) => {
     res.render('inicio', {
-        pagina: 'Inicio'
+        pagina: 'Inicio',
+        clase: 'home'
     })
     // const promises = [];
 
