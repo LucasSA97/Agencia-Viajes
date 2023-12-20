@@ -17,13 +17,17 @@ const guardarTestimonio = async (req , res) => {
 
     }
     if(errores.length > 0){
+        //Consultar si hay testimonios
+        const testimonios = await Testimonios.findAll()
+
         //Mostramos los errores
         res.render('testimonios', {
             pagina: 'Testimonios',
             errores,
             nombre,
             correo,
-            mensaje
+            mensaje,
+            testimonios
         })
     } else {
         //Almacenamos en la base de datos
