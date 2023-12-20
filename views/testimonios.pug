@@ -3,13 +3,13 @@ extends ./layout/layout
 block contenido 
   main.container.mt-5
     .row
-      include ./layout/testimonios
-      .col-md-12
-        h2.text-center Agrega un Testimonial
-        if(errores) 
-          each error in errores
-            .alert.alert-danger.text-center=error.mensaje
-        .row.justify-content-center
+
+        .col-md-12
+            h2.d-block.w-100.text-center Agrega un Testimonial
+            if(errores) 
+                each error in errores
+                    .alert.alert-danger.text-center=error.mensaje
+        .row.justify-content-center.col
           .col-md-8
             form(action="/testimonios" method="post")
               .form-group
@@ -20,5 +20,5 @@ block contenido
                 input#correo.form-control(type='email', placeholder='Tu Correo Electrónico', name="correo", value=correo)
               .form-group
                 label(for='mensaje') Mensaje
-                textarea#mensaje.form-control(name="mensaje", rows=3, placeholder="Tu Mensaje", value=mensaje)
+                textarea#mensaje.form-control(name="mensaje", rows=3, placeholder="Tu Mensaje")= mensaje
               input.btn.btn-success.btn-block(type="submit")
