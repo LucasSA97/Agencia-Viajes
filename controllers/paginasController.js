@@ -3,31 +3,34 @@ import { Testimonios } from '../models/Testimonios.js';
 
 const paginaInicio = async (req, res) => {
 
+    const promises = [];
+
+    promises.push(Viaje.findAll({
+        limit: 3
+    }));
+
+    promises.push(Testimonios.findAll({
+        limit: 3
+    }));
+
     //Consultamos 3 viajes del modelo viaje
     try {
-        const viajes = await Viaje.findAll({ limit: 3 })
+        const resultado =  await Promise.all(promises);
         res.render('inicio', {
             pagina: 'Inicio',
             clase: 'home',
-            viajes
+            viajes: resultado[0],
+            testimonios: resultado[1]
         })
     } catch (error) {
         console.log(error)
     }
-    // const promises = [];
 
-    // promises.push(Viaje.findAll({
-    //     limit: 3
-    // }));
-
-    // promises.push(Testimonial.findAll({
-    //     limit: 3
-    // }));
 
 
     // try {
-    //     // pasar al promise
-    //     const resultado =  await Promise.all(promises);
+        // pasar al promise
+       
 
     //     console.log(resultado[0])
 
